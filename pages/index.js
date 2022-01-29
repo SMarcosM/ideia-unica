@@ -1,30 +1,20 @@
-import Link from "next/link";
-import Image from "next/image";
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
 
-
-function HomePage() {
-  const MyComponent = () => (
-    <Image src="/images/sebas.jpg" // Route of the image file
-      height={144} // Desired size with correct aspect ratio
-      width={144} // Desired size with correct aspect ratio
-      alt="Sebastião Marcos"
-    />
-
-  )
-
+export default function HomePage() {
   return (
-    <>
-      <MyComponent />
-      <h1 className="title">
-
-        Read{' '}
-
-        <Link href="/posts/first-post">
-          <a>this page!</a>
-        </Link>
-      </h1>
-    </>
+    <Layout homePage>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <p>Olá, sou o Sebastião. Eu sou eletrotécnico e graduando em Sistemas de Informação.</p>
+        <p>
+          (This is a sample website - you’ll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+    </Layout>
   )
 }
-
-export default HomePage;
